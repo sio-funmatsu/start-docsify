@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
@@ -12,17 +12,17 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: '',
+      name: 'docsify',
       // nameLink: {'/':'/'},
-      repo: '',
+      repo: 'https://github.com/sio-funmatsu/start-docsify.git',
       routerMode: 'history',
       //alias: { '/sub/file' : 'localhost:3000/sub/file'}
     }
 
     // /#/ -> /
-    if (/\/#\//.test(location.href)) {
-      location.href = location.href.replace('/#/', '/')
-    }
+    // if (/\/#\//.test(location.href)) {
+    //   location.href = location.href.replace('/#/', '/')
+    // }
 
     (function (l) {
       if (l.search) {

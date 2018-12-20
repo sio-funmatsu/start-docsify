@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '',
+      // nameLink: {'/':'/'},
+      repo: '',
+      routerMode: 'history',
+      alias: { '/sub/file' : 'localhost:3000/sub/file'}
+    }
+
+    // /#/ -> /
+    if (/\/#\//.test(location.href)) {
+      location.href = location.href.replace('/#/', '/')
+    }
+
+    (function (l) {
+      if (l.search) {
+        var q = {};
+        l.search.slice(1).split('&').forEach(function (v) { // ?p=/fooの分解
+          var a = v.split('='); // 'p=/foo' となっているはずなので=で分割
+          q[a[0]] = a[1]; // {p: '/foo'} 形式に修正
+        });
+        if (q.p !== undefined) {
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + (q.p || '')); // https://hoge.com/fooへ遷移
+        }
+      }
+    }(window.location))
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+</body>
+</html>
